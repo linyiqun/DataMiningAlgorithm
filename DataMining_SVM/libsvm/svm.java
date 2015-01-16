@@ -2637,6 +2637,12 @@ public class svm {
 		return model;
 	}
 
+	/**
+	 * 对svm的配置参数叫验证，因为有些参数只针对部分的支持向量机的类型
+	 * @param prob
+	 * @param param
+	 * @return
+	 */
 	public static String svm_check_parameter(svm_problem prob, svm_parameter param)
 	{
 		// svm_type

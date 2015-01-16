@@ -40,7 +40,9 @@ public class SVM {
 		// 定义svm_parameter对象
 		svm_parameter param = new svm_parameter();
 		param.svm_type = svm_parameter.EPSILON_SVR;
+		//设置svm的核函数类型为线型
 		param.kernel_type = svm_parameter.LINEAR;
+		//后面的参数配置只针对训练集的数据
 		param.cache_size = 100;
 		param.eps = 0.00001;
 		param.C = 1.9;
