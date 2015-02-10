@@ -94,28 +94,65 @@ public class GSPTool {
 	 * @return
 	 */
 	private ArrayList<Sequence> generateOneFrequencyItem() {
+		int count = 0;
+		int currentTransanctionID = 0;
 		Sequence tempSeq;
 		ItemSet tempItemSet;
+		HashMap<Integer, Integer> itemNumMap = new HashMap<>();
 		ArrayList<Sequence> seqList = new ArrayList<>();
-		ArrayList<Integer> itemNumArray = new ArrayList<>();
 
 		for (Sequence seq : totalSequences) {
 			for (ItemSet itemSet : seq.getItemSetList()) {
 				for (int num : itemSet.getItems()) {
 					// 如果没有此种类型项，则进行添加操作
-					if (!itemNumArray.contains(num)) {
-						itemNumArray.add(num);
+					if (!itemNumMap.containsKey(num)) {
+						itemNumMap.put(num, 1);
 					}
 				}
 			}
 		}
+		
+		boolean isContain = false;
+		int number = 0;
+		for (Map.Entry entry : itemNumMap.entrySet()) {
+			count = 0;
+			number = (int) entry.getKey();
+			for (Sequence seq : totalSequences) {
+				isContain = false;
+				
+				for (ItemSet itemSet : seq.getItemSetList()) {
+					for (int num : itemSet.getItems()) {
+						// 如果没有此种类型项，则进行添加操作
+						if (num == number) {
+							isContain = true;
+							break;
+						}
+					}
+					
+					if(isContain){
+						break;
+					}
+				}
+				
+				if(isContain){
+					count++;
+				}
+			}
+			
+			itemNumMap.put(number, count);
+		}
+		
 
-		for (int num : itemNumArray) {
-			tempSeq = new Sequence();
-			tempItemSet = new ItemSet(new int[] { num });
+		for (Map.Entry entry : itemNumMap.entrySet()) {
+			count = (int) entry.getValue();
+			if (count >= minSupportCount) {
+				tempSeq = new Sequence();
+				tempItemSet = new ItemSet(new int[] { (int) entry.getKey() });
 
-			tempSeq.getItemSetList().add(tempItemSet);
-			seqList.add(tempSeq);
+				tempSeq.getItemSetList().add(tempItemSet);
+				seqList.add(tempSeq);
+			}
+
 		}
 		// 将序列升序排列
 		Collections.sort(seqList);
