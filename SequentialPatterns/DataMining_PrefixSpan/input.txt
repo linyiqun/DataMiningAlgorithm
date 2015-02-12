@@ -1,0 +1,5 @@
+bd c b ac
+bf ce b fg
+ah bf a b f
+be ce d
+a bd b c b ade
