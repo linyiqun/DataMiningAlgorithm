@@ -47,7 +47,10 @@ public class FrequentItem implements Comparable<FrequentItem>{
 	@Override
 	public int compareTo(FrequentItem o) {
 		// TODO Auto-generated method stub
-		return this.getIdArray()[0].compareTo(o.getIdArray()[0]);
+		Integer int1 = Integer.parseInt(this.getIdArray()[0]);
+		Integer int2 = Integer.parseInt(o.getIdArray()[0]);
+		
+		return int1.compareTo(int2);
 	}
 	
 }
