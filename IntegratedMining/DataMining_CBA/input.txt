@@ -1,0 +1,15 @@
+Rid Age Income Student CreditRating BuysComputer
+1 13 High No Fair CLassNo
+2 11 High No Excellent CLassNo
+3 25 High No Fair CLassYes
+4 45 Medium No Fair CLassYes
+5 50 Low Yes Fair CLassYes
+6 51 Low Yes Excellent CLassNo
+7 30 Low Yes Excellent CLassYes
+8 13 Medium No Fair CLassNo
+9 9 Low Yes Fair CLassYes
+10 55 Medium Yes Fair CLassYes
+11 14 Medium Yes Excellent CLassYes
+12 33 Medium No Excellent CLassYes
+13 33 High Yes Fair CLassYes
+14 41 Medium No Excellent CLassNo
