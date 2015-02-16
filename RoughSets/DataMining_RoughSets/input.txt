@@ -1,0 +1,9 @@
+Element Color Shape Size Stability
+x1 Red Triangle Large Stable
+x2 Red Triangle Large Stable
+x3 Yellow Circle Small UnStable
+x4 Yellow Circle Small UnStable
+x5 Blue Rectangle Large Stable
+x6 Red Circle Middle UnStable
+x7 Blue Circle Small UnStable
+x8 Blue Rectangle Middle UnStable
