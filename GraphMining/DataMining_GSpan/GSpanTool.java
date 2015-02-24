@@ -331,11 +331,12 @@ public class GSpanTool {
 
 		DFSCodeTraveler dTraveler = new DFSCodeTraveler(gc.getEdgeSeq(), graph);
 		dTraveler.traveler();
-		// 如果当前是最小编码则将此图加入到结果集中
-		if (dTraveler.isMin) {
-			resultGraphs.add(graph);
+		if (!dTraveler.isMin) {
+			return;
 		}
 
+		// 如果当前是最小编码则将此图加入到结果集中
+		resultGraphs.add(graph);
 		Edge e1;
 		ArrayList<Integer> gIds;
 		SubChildTraveler sct;
