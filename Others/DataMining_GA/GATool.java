@@ -119,6 +119,10 @@ public class GATool {
 		for (int i = 0; i < initSetsNum; i++) {
 			randomNum = random.nextInt(100) + 1;
 			randomNum = randomNum / 100;
+			//因为1.0是无法判断到的，,总和会无限接近1.0取为0.99做判断
+			if(randomNum == 1){
+				randomNum = randomNum - 0.01;
+			}
 
 			sumAdaptiveValue = 0;
 			// 确定区间
