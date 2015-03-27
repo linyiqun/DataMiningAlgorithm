@@ -65,3 +65,12 @@ gSpan算法属于图挖掘算法领域。，主要用于频繁子图的挖掘，
 
 * ### DbScan
 基于空间密度聚类算法。dbScan作为一种特殊聚类算法，弥补了其他算法的一些不足，基于空间密，实现聚类效果，可以发现任意形状的聚簇。[详细介绍链接](http://blog.csdn.net/androidlushangderen/article/details/44311309)
+
+* ### GA_Maze
+遗传算法在走迷宫游戏中的应用。将走迷宫中的搜索出口路径的问题转化为遗传算法中的问题通过构造针对此特定问题的适值函数，基因移动方向的定位，巧的进行问题的求解。[详细介绍链接](http://blog.csdn.net/androidlushangderen/article/details/44656809)
+
+* ### CABDDCC
+基于连通图的分裂聚类算法。也是属于层次聚类算法主要分为2个阶段，第一阶段构造连通图。第二个阶段是分裂连通图，最终形成聚类结果。[详细介绍链接](http://blog.csdn.net/androidlushangderen/article/details/44463997)
+
+* ### Chameleon
+两阶段聚类算法。与CABDDCC算法相反，最后是通过对小簇集合的合并，形成最终的结果，在第一阶段主要是通过K近邻的思想形成小规模的连通图，第二阶段通过RI(相对互连性)和RC(相对近似性)来选一个最佳的簇进行合并。[详细介绍链接](http://blog.csdn.net/androidlushangderen/article/details/44569077)
