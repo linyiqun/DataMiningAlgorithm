@@ -75,5 +75,8 @@ gSpan算法属于图挖掘算法领域。，主要用于频繁子图的挖掘，
 * ### Chameleon
 两阶段聚类算法。与CABDDCC算法相反，最后是通过对小簇集合的合并，形成最终的结果，在第一阶段主要是通过K近邻的思想形成小规模的连通图，第二阶段通过RI(相对互连性)和RC(相对近似性)来选一个最佳的簇进行合并。[详细介绍链接](http://blog.csdn.net/androidlushangderen/article/details/44569077)
 
+* ### RandomForest
+随机森林算法。算法思想是决策树+boosting.决策树采用的是CART分类回归数,通过组合各个决策树的弱分类器,构成一个最终的强分类器,在构造决策树的时候采取随机数量的样本数和随机的部分属性进行子决策树的构建,避免了过分拟合的现象发生。[详细介绍链接](http://blog.csdn.net/androidlushangderen/article/details/44756943)
+
 * ### KDTree
 K-Dimension Tree。多维空间划分树，数据在多维空间进行划分与查找。
