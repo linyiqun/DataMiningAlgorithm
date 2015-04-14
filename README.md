@@ -79,4 +79,4 @@ gSpan算法属于图挖掘算法领域。，主要用于频繁子图的挖掘，
 随机森林算法。算法思想是决策树+boosting.决策树采用的是CART分类回归数,通过组合各个决策树的弱分类器,构成一个最终的强分类器,在构造决策树的时候采取随机数量的样本数和随机的部分属性进行子决策树的构建,避免了过分拟合的现象发生。[详细介绍链接](http://blog.csdn.net/androidlushangderen/article/details/44756943)
 
 * ### KDTree
-K-Dimension Tree。多维空间划分树，数据在多维空间进行划分与查找。
+K-Dimension Tree。多维空间划分树，数据在多维空间进行划分与查找。主要用于关键信息的搜索，类似于在空间中的二分搜索，大大提高了搜索效率，在寻找目标元素时，使用了DFS深度优先的方式和回溯进行最近点的寻找。[详细介绍链接](http://blog.csdn.net/androidlushangderen/article/details/44985259)
