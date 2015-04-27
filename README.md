@@ -82,4 +82,4 @@ gSpan算法属于图挖掘算法领域。，主要用于频繁子图的挖掘，
 K-Dimension Tree。多维空间划分树，数据在多维空间进行划分与查找。主要用于关键信息的搜索，类似于在空间中的二分搜索，大大提高了搜索效率，在寻找目标元素时，使用了DFS深度优先的方式和回溯进行最近点的寻找。[详细介绍链接](http://blog.csdn.net/androidlushangderen/article/details/44985259)
 
 * ### MS-Apriori
-基于多支持度的Apriori算法。是Apriori算法的升级算法，弥补了原先Apriori算法的不足，还增加了支持度差别限制以及支持度计数统计方面的优化，无须再次重新扫描整个数据集，产生关联规则的时候可以根据子集的关系避免一些置信度的计算。
+基于多支持度的Apriori算法。是Apriori算法的升级算法，弥补了原先Apriori算法的不足，还增加了支持度差别限制以及支持度计数统计方面的优化，无须再次重新扫描整个数据集，产生关联规则的时候可以根据子集的关系避免一些置信度的计算。[详细介绍链接](http://blog.csdn.net/androidlushangderen/article/details/45082337)
