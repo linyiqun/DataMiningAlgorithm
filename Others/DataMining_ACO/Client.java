@@ -11,6 +11,8 @@ public class Client {
 		String filePath = "C:\\Users\\lyq\\Desktop\\icon\\input.txt";
 		//蚂蚁数量
 		int antNum;
+		//蚁群算法迭代次数
+		int loopCount;
 		//控制参数
 		double alpha;
 		double beita;
@@ -22,8 +24,9 @@ public class Client {
 		beita = 1;
 		p = 0.5;
 		Q = 5;
+		loopCount = 5;
 		
 		ACOTool tool = new ACOTool(filePath, antNum, alpha, beita, p, Q);
-		tool.antStartSearching();
+		tool.antStartSearching(loopCount);
 	}
 }
