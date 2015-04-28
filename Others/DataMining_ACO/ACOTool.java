@@ -270,8 +270,10 @@ public class ACOTool {
 
 					addPheromone = 0;
 					for (Ant ant : totalAnts) {
-						// 每只蚂蚁传播的信息素为控制因子除以距离总成本
-						addPheromone += Q / ant.calSumDistance();
+						if(ant.pathContained(i, j)){
+							// 每只蚂蚁传播的信息素为控制因子除以距离总成本
+							addPheromone += Q / ant.calSumDistance();
+						}
 					}
 
 					// 将上次的结果值加上递增的量，并存入图中
@@ -284,9 +286,14 @@ public class ACOTool {
 
 	}
 
-	public void antStartSearching() {
+	/**
+	 * 蚁群算法迭代次数
+	 * @param loopCount
+	 * 具体遍历次数
+	 */
+	public void antStartSearching(int loopCount) {
 		// 蚁群寻找的总次数
-		int loopCount = 0;
+		int count = 0;
 		// 选中的下一个城市
 		String selectedCity = "";
 
@@ -294,7 +301,7 @@ public class ACOTool {
 		totalAnts = new ArrayList<>();
 		random = new Random();
 
-		while (loopCount < 10) {
+		while (count < loopCount) {
 			initAnts();
 
 			while (true) {
@@ -312,13 +319,16 @@ public class ACOTool {
 			// 周期时间叠加
 			currentTime++;
 			refreshPheromone(currentTime);
+			count++;
 		}
 
 		// 根据距离成本，选出所花距离最短的一个路径
 		Collections.sort(totalAnts);
 		bestPath = totalAnts.get(0).currentPath;
+		System.out.println(MessageFormat.format("经过{0}次循环遍历，最终得出的最佳路径：", count));
+		System.out.print("entrance");
 		for (String cityName : bestPath) {
-			System.out.println(MessageFormat.format("-->{0}", cityName));
+			System.out.print(MessageFormat.format("-->{0}", cityName));
 		}
 	}
 
