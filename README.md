@@ -1,5 +1,27 @@
 # 数据挖掘算法
 
+## 算法目录
+包名 | 目录名 | 算法名 |
+-----| ------ |--------|
+AssociationAnalysis | DataMining_Apriori | Apriori-关联规则挖掘算法
+AssociationAnalysis | DataMining_FPTree | FPTree-频繁模式树算法
+BaggingAndBoosting | DataMining_AdaBoost | AdaBoost-装袋提升算法
+Classification | DataMining_CART | CART-分类回归树算法
+Classification | DataMining_ID3 | ID3-决策树分类算法
+Classification | DataMining_KNN | KNN-k最近邻算法工具类
+Classification | DataMining_NaiveBayes | NaiveBayes-朴素贝叶斯算法
+Clustering | DataMining_BIRCH | BIRCH-层次聚类算法
+Clustering | DataMining_KMeans | KMeans-K均值算法
+GraphMining | DataMining_GSpan | GSpan-频繁子图挖掘算法
+IntegratedMining | DataMining_CBA | CBA-基于关联规则的分类算法
+LinkMining | DataMining_HITS | HITS-链接分析算法
+LinkMining | DataMining_PageRank | PageRank-网页重要性/排名算法
+RoughSets | DataMining_RoughSets | RoughSets-粗糙集属性约简算法
+SequentialPatterns | DataMining_GSP | GSP-序列模式分析算法
+SequentialPatterns | DataMining_PrefixSpan | PrefixSpan-序列模式分析算法
+StatisticalLearning | DataMining_EM | EM-期望最大化算法
+StatisticalLearning | DataMining_SVM | SVM-支持向量机算法
+
 ##18大经典DM算法
 18大数据挖掘的经典算法以及代码实现，涉及到了决策分类，聚类，链接挖掘，关联挖掘，模式挖掘等等方面,后面都是相应算法的博文链接，希望能够帮助大家学。
 目前追加了其他的一些经典的DM算法，在others的包中涉及聚类，分类，图算法，搜索算等等，没有具体分类。
