@@ -50,9 +50,11 @@ public class BayesNetWorkTool {
 		adatas = readDataFile(attachFilePath);
 
 		columnValues = datas.get(0).split(" ");
-		// 从数据中取出属性名称行，列数值存入图中
+		// 属性割名称代表事件B(盗窃)，E(地震)，A(警铃响).M(接到M的电话)，J同M的意思,
+		// 属性值都是y,n代表yes发生和no不发生
 		this.attr2Column = new HashMap<>();
 		for (int i = 0; i < columnValues.length; i++) {
+			// 从数据中取出属性名称行，列数值存入图中
 			this.attr2Column.put(columnValues[i], i);
 		}
 
