@@ -22,6 +22,7 @@ SequentialPatterns | DataMining_GSP | GSP-序列模式分析算法
 SequentialPatterns | DataMining_PrefixSpan | PrefixSpan-序列模式分析算法
 StatisticalLearning | DataMining_EM | EM-期望最大化算法
 StatisticalLearning | DataMining_SVM | SVM-支持向量机算法
+
 #### 其他经典DM算法
 包名 | 目录名 | 算法名 |
 -----| ------ |--------|
@@ -35,7 +36,8 @@ Others | DataMining_GA_Maze | GA_Maze-遗传算法在走迷宫游戏中的应用
 Others | DataMining_KDTree | KDTree-k维空间关键数据检索算法工具类
 Others | DataMining_MSApriori | MSApriori-基于多支持度的Apriori算法
 Others | DataMining_RandomForest | RandomForest-随机森林算法
-Others | DataMining_TAN |TAN-树型朴素贝叶斯算法
+Others | DataMining_TAN | TAN-树型朴素贝叶斯算法
+Others | DataMining_Viterbi | Viterbi-维特比算法
 
 ## 18大经典DM算法
 18大数据挖掘的经典算法以及代码实现，涉及到了决策分类，聚类，链接挖掘，关联挖掘，模式挖掘等等方面,后面都是相应算法的博文链接，希望能够帮助大家学。
@@ -128,7 +130,10 @@ K-Dimension Tree。多维空间划分树，数据在多维空间进行划分与�
 贝叶斯网络算法。弥补了朴素贝叶斯算法中必须要事件独立性的缺点，利用了贝叶斯网络的DAG有向无环图，允许各个事件保留一定的依赖关系，网络结构中的每个节点代表一种属性，边代表相应的条件概率值，通过计算从而能得到精准的分类效果。[详细介绍链接](http://blog.csdn.net/androidlushangderen/article/details/46683729)
 
 * ### TAN
-树型朴素贝叶斯算法。此算法又被称为加强版朴素贝叶斯算法。在满足原有朴素贝叶斯条件的基础上，他允许部条件属性直接的关联性。形成树型的结构。
+树型朴素贝叶斯算法。此算法又被称为加强版朴素贝叶斯算法。在满足原有朴素贝叶斯条件的基础上，他允许部条件属性直接的关联性。形成树型的结构。[详细介绍链接](http://blog.csdn.net/androidlushangderen/article/details/46763427)
+
+* ### Viterbi
+维特比算法。给定一个隐马尔科夫模型以及一个观察序列，求出潜在的状态序列信息，每个潜在状态信息又会受到前一个状态信息的影响。
 
 ## 算法使用方法
 在每个算法中给出了3大类型，主算法程序，调用程序，输入数据，调用方法如下：
