@@ -1,0 +1,4 @@
+# Sunny Cloudy Rainy
+Sunny 0.5 0.375 0.125
+Cloudy 0.25 0.125 0.625
+Rainy 0.25 0.375 0.375
