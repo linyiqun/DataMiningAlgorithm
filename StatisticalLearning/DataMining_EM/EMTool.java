@@ -1,5 +1,3 @@
-package DataMining_EM;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -8,32 +6,37 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 
 /**
- * EM×î´óÆÚÍûËã·¨¹¤¾ßÀà
+ * EMæœ€å¤§æœŸæœ›ç®—æ³•å·¥å…·ç±»
  * 
  * @author lyq
+ * @modify mindcont
+ * @date 2016-3-26
+ * @since æ–°å¢ åæ ‡ç³» æ‰“ç‚¹
  * 
  */
 public class EMTool {
-	// ²âÊÔÊı¾İÎÄ¼şµØÖ·
+	// æµ‹è¯•æ•°æ®æ–‡ä»¶åœ°å€
 	private String dataFilePath;
-	// ²âÊÔ×ø±êµãÊı¾İ
+	// æµ‹è¯•åæ ‡ç‚¹æ•°æ®
 	private String[][] data;
-	// ²âÊÔ×ø±êµãÊı¾İÁĞ±í
+	// æµ‹è¯•åæ ‡ç‚¹æ•°æ®åˆ—è¡¨
 	private ArrayList<Point> pointArray;
-	// Ä¿±êC1µã
+	// ç›®æ ‡C1ç‚¹
 	private Point p1;
-	// Ä¿±êC2µã
+	// ç›®æ ‡C2ç‚¹
 	private Point p2;
-
+	
 	public EMTool(String dataFilePath) {
 		this.dataFilePath = dataFilePath;
 		pointArray = new ArrayList<>();
 	}
 
 	/**
-	 * ´ÓÎÄ¼şÖĞ¶ÁÈ¡Êı¾İ
+	 * ä»æ–‡ä»¶ä¸­è¯»å–æ•°æ®
 	 */
 	public void readDataFile() {
+		
+
 		File file = new File(dataFilePath);
 		ArrayList<String[]> dataArray = new ArrayList<String[]>();
 
@@ -53,64 +56,65 @@ public class EMTool {
 		data = new String[dataArray.size()][];
 		dataArray.toArray(data);
 
-		// ¿ªÊ¼Ê±Ä¬ÈÏÈ¡Í·2¸öµã×÷Îª2¸ö´ØÖĞĞÄ
+		// å¼€å§‹æ—¶é»˜è®¤å–å¤´2ä¸ªç‚¹ä½œä¸º2ä¸ªç°‡ä¸­å¿ƒ
 		p1 = new Point(Integer.parseInt(data[0][0]),
 				Integer.parseInt(data[0][1]));
 		p2 = new Point(Integer.parseInt(data[1][0]),
 				Integer.parseInt(data[1][1]));
-
 		Point p;
 		for (String[] array : data) {
-			// ½«Êı¾İ×ª»»Îª¶ÔÏó¼ÓÈëÁĞ±í·½±ã¼ÆËã
+			// å°†æ•°æ®è½¬æ¢ä¸ºå¯¹è±¡åŠ å…¥åˆ—è¡¨æ–¹ä¾¿è®¡ç®—
 			p = new Point(Integer.parseInt(array[0]),
 					Integer.parseInt(array[1]));
 			pointArray.add(p);
 		}
+		
 	}
 
+
 	/**
-	 * ¼ÆËã×ø±êµã¶ÔÓÚ2¸ö´ØÖĞĞÄµãµÄÁ¥Êô¶È
+	 * è®¡ç®—åæ ‡ç‚¹å¯¹äº2ä¸ªç°‡ä¸­å¿ƒç‚¹çš„éš¶å±åº¦
 	 * 
 	 * @param p
-	 *            ´ı²âÊÔ×ø±êµã
+	 *            å¾…æµ‹è¯•åæ ‡ç‚¹
 	 */
 	private void computeMemberShip(Point p) {
-		// pµã¾àÀëµÚÒ»¸ö´ØÖĞĞÄµãµÄ¾àÀë
+		// pç‚¹è·ç¦»ç¬¬ä¸€ä¸ªç°‡ä¸­å¿ƒç‚¹çš„è·ç¦»
 		double distance1 = 0;
-		// p¾àÀëµÚ¶ş¸öÖĞĞÄµãµÄ¾àÀë
+		// pè·ç¦»ç¬¬äºŒä¸ªä¸­å¿ƒç‚¹çš„è·ç¦»
 		double distance2 = 0;
 
-		// ÓÃÅ·Ê½¾àÀë¼ÆËã
+		// ç”¨æ¬§å¼è·ç¦»è®¡ç®—
 		distance1 = Math.pow(p.getX() - p1.getX(), 2)
 				+ Math.pow(p.getY() - p1.getY(), 2);
 		distance2 = Math.pow(p.getX() - p2.getX(), 2)
 				+ Math.pow(p.getY() - p2.getY(), 2);
 
-		// ¼ÆËã¶ÔÓÚp1µãµÄÁ¥Êô¶È£¬Óë¾àÀë³É·´±È¹ØÏµ£¬¾àÀë¿¿½üÔ½Ğ¡£¬Á¥Êô¶ÈÔ½´ó£¬ËùÒÔÒªÓÃ´óµÄdistance2ÁíÍâµÄ¾àÀëÀ´±íÊ¾
-		p.setMemberShip1(distance2 / (distance1 + distance2));
-		// ¼ÆËã¶ÔÓÚp2µãµÄÁ¥Êô¶È
-		p.setMemberShip2(distance1 / (distance1 + distance2));
+		// è®¡ç®—å¯¹äºp1ç‚¹çš„éš¶å±åº¦ï¼Œä¸è·ç¦»æˆåæ¯”å…³ç³»ï¼Œè·ç¦»é è¿‘è¶Šå°ï¼Œéš¶å±åº¦è¶Šå¤§ï¼Œæ‰€ä»¥è¦ç”¨å¤§çš„distance2å¦å¤–çš„è·ç¦»æ¥è¡¨ç¤º
+		p.setMemberShip1((int) (distance2 / (distance1 + distance2)));
+		// è®¡ç®—å¯¹äºp2ç‚¹çš„éš¶å±åº¦
+		p.setMemberShip2((int) (distance1 / (distance1 + distance2)));
 	}
 
 	/**
-	 * Ö´ĞĞÆÚÍû×î´ó»¯²½Öè
+	 * æ‰§è¡ŒæœŸæœ›æœ€å¤§åŒ–æ­¥éª¤
 	 */
 	public void exceptMaxStep() {
-		// ĞÂµÄÓÅ»¯¹ıµÄ´ØÖĞĞÄµã
-		double p1X = 0;
-		double p1Y = 0;
-		double p2X = 0;
-		double p2Y = 0;
-		double temp1 = 0;
-		double temp2 = 0;
-		// Îó²îÖµ
-		double errorValue1 = 0;
-		double errorValue2 = 0;
-		// ÉÏ´Î¸üĞÂµÄ´Øµã×ø±ê
+		// æ–°çš„ä¼˜åŒ–è¿‡çš„ç°‡ä¸­å¿ƒç‚¹
+		int p1X = 0;
+		int p1Y = 0;
+		int p2X = 0;
+		int p2Y = 0;
+		int temp1 = 0;
+		int temp2 = 0;
+		// è¯¯å·®å€¼
+		int errorValue1 = 0;
+		int errorValue2 = 0;
+		// ä¸Šæ¬¡æ›´æ–°çš„ç°‡ç‚¹åæ ‡
 		Point lastP1 = null;
 		Point lastP2 = null;
 
-		// µ±¿ªÊ¼¼ÆËãµÄÊ±ºò£¬»òÊÇÖĞĞÄµãµÄÎó²îÖµ³¬¹ı1µÄÊ±ºò¶¼ĞèÒªÔÙ´Îµü´ú¼ÆËã
+		// å½“å¼€å§‹è®¡ç®—çš„æ—¶å€™ï¼Œæˆ–æ˜¯ä¸­å¿ƒç‚¹çš„è¯¯å·®å€¼è¶…è¿‡1çš„æ—¶å€™éƒ½éœ€è¦å†æ¬¡è¿­ä»£è®¡ç®—
 		while (lastP1 == null || errorValue1 > 1.0 || errorValue2 > 1.0) {
 			for (Point p : pointArray) {
 				computeMemberShip(p);
@@ -126,7 +130,7 @@ public class EMTool {
 			lastP1 = new Point(p1.getX(), p1.getY());
 			lastP2 = new Point(p2.getX(), p2.getY());
 
-			// Ì×¹«Ê½¼ÆËãĞÂµÄ´ØÖĞĞÄµã×ø±ê,×î×î´ó»¯´¦Àí
+			// å¥—å…¬å¼è®¡ç®—æ–°çš„ç°‡ä¸­å¿ƒç‚¹åæ ‡,æœ€æœ€å¤§åŒ–å¤„ç†
 			p1.setX(p1X / temp1);
 			p1.setY(p1Y / temp1);
 			p2.setX(p2X / temp2);
@@ -139,8 +143,10 @@ public class EMTool {
 		}
 
 		System.out.println(MessageFormat.format(
-				"´ØÖĞĞÄ½Úµãp1({0}, {1}), p2({2}, {3})", p1.getX(), p1.getY(),
+				"ç°‡ä¸­å¿ƒèŠ‚ç‚¹p1({0}, {1}), p2({2}, {3})", p1.getX(), p1.getY(),
 				p2.getX(), p2.getY()));
+		
+		new DrawPoints(pointArray);//è°ƒç”¨DrawPointsç±» ç»˜åˆ¶åæ ‡ç³»å¹¶æ‰“ç‚¹
 	}
-
+	
 }
