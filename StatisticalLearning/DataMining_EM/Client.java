@@ -1,13 +1,15 @@
-package DataMining_EM;
+
 
 /**
- * EMÆÚÍû×î´ó»¯Ëã·¨³¡¾°µ÷ÓÃÀà
+ * EMæœŸæœ›æœ€å¤§åŒ–ç®—æ³•åœºæ™¯è°ƒç”¨ç±»
  * @author lyq
  *
  */
 public class Client {
+
 	public static void main(String[] args){
-		String filePath = "C:\\Users\\lyq\\Desktop\\icon\\input.txt";
+			
+		String filePath = "D:\\Eclipse_Workstation\\DataMining_EM\\src\\input.txt";
 		
 		EMTool tool = new EMTool(filePath);
 		tool.readDataFile();
